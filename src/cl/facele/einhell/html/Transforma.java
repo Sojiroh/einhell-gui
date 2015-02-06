@@ -416,7 +416,14 @@ public class Transforma {
 				referencias +=   ";"; // pos_3_Indicador
 																// de Referencia
 																// Global
-				referencias += guia2 + ";"; // pos_4_FOLIO-
+				if (guia2.contains("NV/")){
+                                    referencias += guia2.replace("NV/", "") + ";";
+                                } else if (guia2.contains("SRV-PDL-")){
+                                    referencias += guia2.replace("SRV-PDL-", "") + ";";
+                                }else if (guia2.contains("NV-")){
+                                    referencias += guia2.replace("NV-", "") + ";";
+                                }else
+                                referencias += guia2 + ";"; // pos_4_FOLIO-
 																// de referencia
 				referencias +=   ";"; // pos_5_RUT Otro
 																// contribuyente
