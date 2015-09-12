@@ -70,6 +70,7 @@ public class Transforma {
                                 final String NEW_FORMAT = "yyyy-MM-dd";
                                 SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT, locale1);
                             Date d = sdf.parse(encabeza.get("Fecha Emision"));
+                            
                             sdf.applyPattern(NEW_FORMAT);
                             String newDateString = sdf.format(d);
                                 encabeza.put("Fecha Emision", newDateString);

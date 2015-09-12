@@ -240,6 +240,7 @@ private static Path filePath;
                                             bean.setContendioFile(htm[0]+abajo);
                                             Transforma.toTXT57(bean);
                                             try{
+                                            	System.out.println(bean.getTXT());
                                         soap.generaDTE(bean.getRutEmisor(), "999999999", bean.getTXT());
                                          logg = soap.glosaOperacion;
                                         folio=soap.folioDTE;
@@ -305,6 +306,7 @@ private static Path filePath;
                                             bean.setContendioFile(arriba+htm[i]+abajo);
                                             Transforma.toTXT57(bean);
                                             try{
+                                            	System.out.println(bean.getTXT());
                                         soap.generaDTE(bean.getRutEmisor(), "999999999", bean.getTXT());
                                           logg = soap.glosaOperacion;
                                         folio=soap.folioDTE;
@@ -372,6 +374,7 @@ private static Path filePath;
                                             bean.setContendioFile(arriba+htm[i]+abajo);
                                             Transforma.toTXT57(bean);
                                             try{
+                                            	System.out.println(bean.getTXT());
                                         soap.generaDTE(bean.getRutEmisor(), "999999999", bean.getTXT());
                                          logg = soap.glosaOperacion;
                                         folio=soap.folioDTE;
@@ -426,6 +429,7 @@ private static Path filePath;
                                     bean.setContendioFile(new String(Files.readAllBytes(filePath), Charset.forName("ISO-8859-1")));
                                     Transforma.toTXT57(bean);
                                     try{
+                                    	System.out.println(bean.getTXT());
                                         soap.generaDTE(bean.getRutEmisor(), "999999999", bean.getTXT());
                                           logg = soap.glosaOperacion;
                                         folio=soap.folioDTE;
