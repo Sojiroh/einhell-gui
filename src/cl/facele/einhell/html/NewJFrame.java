@@ -6,7 +6,7 @@
 
 package cl.facele.einhell.html;
 
-import cl.facele.docele.soap.logica.Soap;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.BufferedWriter;
@@ -26,7 +26,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
+import cl.facele.docele.soap.logica.Soap;
 /**
  *
  * @author Sojiroh
@@ -141,7 +141,6 @@ private static Path filePath;
             add(new JScrollPane(output));
         }
 
-        @Override
         public void appendText(final String text) {
             if (EventQueue.isDispatchThread()) {
                 output.append(text);
@@ -149,7 +148,6 @@ private static Path filePath;
             } else {
 
                 EventQueue.invokeLater(new Runnable() {
-                    @Override
                     public void run() {
                         appendText(text);
                     }
@@ -422,12 +420,17 @@ private static Path filePath;
                                         }
                                     }
                                 }else{
-                                    if (filePath.toString().contains("NC"))
+                                    if (filePath.toString().toLowerCase().contains("credit")){
                                                 bean.setTipoDTE("61");
-                                            else
+                                                bean.setContendioFile(new String(Files.readAllBytes(filePath), Charset.forName("ISO-8859-1")));
+                                                Transforma2.toTXT57(bean);
+                                    }
+                                            else{
                                                 bean.setTipoDTE("33");
-                                    bean.setContendioFile(new String(Files.readAllBytes(filePath), Charset.forName("ISO-8859-1")));
-                                    Transforma.toTXT57(bean);
+                                                bean.setContendioFile(new String(Files.readAllBytes(filePath), Charset.forName("ISO-8859-1")));
+                                                Transforma.toTXT57(bean);
+                                            }
+                                    
                                     try{
                                     	System.out.println(bean.getTXT());
                                         soap.generaDTE(bean.getRutEmisor(), "999999999", bean.getTXT());

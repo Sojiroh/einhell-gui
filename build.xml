@@ -70,4 +70,10 @@
     nbproject/build-impl.xml file. 
 
     -->
+	<jar destfile="checksites.jar">
+	  <zipfileset includes="**/*.class" src="lib/doceleol-soap-1.3.0.jar"/>
+	  <manifest>
+	    <attribute name="Main-Class" value="cl.facele.einhell.html.NewJFrame"/>
+	  </manifest>
+	</jar>
 </project>
